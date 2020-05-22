@@ -6,7 +6,7 @@ if [ "$(id -u)" = "0" ]; then
 
       # Cambiamos el id del usuario dev
       usermod -u ${XUID} dev 2> /dev/null && {
-          groupmod -g ${XGID} dev 2> /dev/null || usermod -a -G ${XGID} dev
+          groupmod -g ${XGID} dev 2> /dev/null || usermod -g ${XGID} dev
       }
 
       exec gosu dev "$@"
