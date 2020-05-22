@@ -11,6 +11,11 @@ RUN set -x \
   && chmod +x /usr/local/bin/gosu \
   && gosu nobody true
 
+RUN echo 'deb http://ftp.debian.org/debian stretch-backports main' | tee /etc/apt/sources.list.d/stretch-backports.list \
+  && apt-get update \
+  && apt-get install -y openjdk-11-jdk \
+  && rm -rf /var/lib/apt/lists/*
+
 # Creamos un user dev
 RUN groupadd -r dev --gid=9001 && useradd -r -g dev --uid=9001 dev
 
