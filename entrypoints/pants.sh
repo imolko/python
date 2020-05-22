@@ -9,7 +9,7 @@ if [ "$(id -u)" = "0" ]; then
           groupmod -g ${XGID} dev 2> /dev/null || usermod -a -G ${XGID} dev
       }
 
-      exec /usr/local/bin/gosu dev "$@"
+      exec gosu dev "$@"
   fi
 fi
 
