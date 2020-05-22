@@ -15,7 +15,7 @@ FROM python:3
 RUN set -eux; \
 	apt-get update; \
 	apt-get install -y gosu; \
-	rm -rf /var/lib/apt/lists/*; \
+	rm -rf /var/lib/apt/lists/* \
 	gosu nobody true
 
 RUN echo 'deb http://ftp.debian.org/debian stretch-backports main' | tee /etc/apt/sources.list.d/stretch-backports.list \
